@@ -12,8 +12,7 @@ prefixes:
   ql: http://semweb.mmlab.be/ns/ql#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   dcat: http://www.w3.org/ns/dcat#
-  emofinder: https://www.usc.gal/pcc/app/emofinder
-  schema: https://schema.org/Article
+  emofinder: https://www.usc.gal/pcc/app/emofinder#
 
 mappings:
   base:
@@ -114,4 +113,76 @@ mappings:
       - [a, emofinder:Word]
       - [rdfs:label,$(palabra)]
       - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/stadthagen_gonzalez_2016~iri]  
+
+  annotationsalonso2015:
+    sources:
+      - [../data/emofinder_base_alonso_2015.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/alonso_2015-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:edad_de_adquisicion_m,$(edad_de_adquisicion_m)]
+      - [emofinder:edad_de_adquisicion_sd,$(edad_de_adquisicion_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/alonso_2015~iri] 
+      - p: emofinder:word
+        o:
+          - mapping: wordsalonso2015
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+  
+  annotationsferre2012:
+    sources:
+      - [../data/emofinder_base_ferre_2012.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/ferre_2012-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:familiaridad_m,$(familiaridad_m)]
+      - [emofinder:familiaridad_sd,$(familiaridad_sd)]
+      - [emofinder:concrecion_m,$(concrecion_m)]
+      - [emofinder:concrecion_sd,$(concrecion_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/ferre_2012~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordsferre2012
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+  
+  annotationsferre2016:
+    sources:
+      - [../data/emofinder_base_ferre_2016.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/ferre_2016-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:translation,$(word)]
+      - [emofinder:alegria_m,$(alegria_m)]
+      - [emofinder:alegria_sd,$(alegria_sd)]
+      - [emofinder:ira_m,$(ira_m)]
+      - [emofinder:ira_sd,$(ira_sd)]
+      - [emofinder:tristeza_m,$(tristeza_m)]
+      - [emofinder:tristeza_sd,$(tristeza_sd)]
+      - [emofinder:miedo_m,$(miedo_m)]
+      - [emofinder:miedo_sd,$(miedo_sd)]
+      - [emofinder:asco_m,$(asco_m)]
+      - [emofinder:asco_sd,$(asco_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/ferre_2016~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordsferre2016
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
 
