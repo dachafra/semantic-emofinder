@@ -1,0 +1,117 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  dcat: http://www.w3.org/ns/dcat#
+  emofinder: https://www.usc.gal/pcc/app/emofinder
+  schema: https://schema.org/Article
+
+mappings:
+  base:
+    sources:
+      - [../data/emofinder_bases.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/emotional-dataset/$(name)
+    po:
+      - [a, emofinder:EmotionalDataset]
+      - [emofinder:hasRelatedArticle,$(articlelink)~iri]
+      - [emofinder:anotations,$(rows),xsd:integer]
+  
+  wordsalonso2015:
+    sources:
+      - [../data/emofinder_base_alonso_2015.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/alonso_2015~iri]   
+  
+  wordsferre2012:
+    sources:
+      - [../data/emofinder_base_ferre_2012.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/ferre_2012~iri]
+
+  wordsferre2016:
+    sources:
+      - [../data/emofinder_base_ferre_2016.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/ferre_2016~iri]
+
+  wordsgonzaleznosti2014:
+    sources:
+      - [../data/emofinder_base_gonzalez_nosti_2013.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/gonzalez_nosti_2014~iri]
+
+  wordsguasch2015:
+    sources:
+      - [../data/emofinder_base_guasch_2015.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/guasch_2015~iri]
+
+  wordshinojosa2016a:
+    sources:
+      - [../data/emofinder_base_hinojosa_2016a.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/hinojosa_2016a~iri]
+
+  wordshinojosa2016b:
+    sources:
+      - [../data/emofinder_base_hinojosa_2016b.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/hinojosa_2016b~iri]
+
+  wordsredondo2005:
+    sources:
+      - [../data/emofinder_base_redondo_2005.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/redondo_2005~iri]
+
+  wordsredondo2007:
+    sources:
+      - [../data/emofinder_base_redondo_2007.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/redondo_2007~iri]    
+  
+  wordsstadthagengonzalez2016:
+    sources:
+      - [../data/emofinder_base_stadthagen_gonzalez_2016.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [a, emofinder:Word]
+      - [rdfs:label,$(palabra)]
+      - [emofinder:annotatedIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/stadthagen_gonzalez_2016~iri]  
+
