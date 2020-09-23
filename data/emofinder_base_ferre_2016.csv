@@ -1,4 +1,4 @@
-id,palabra,word,alegria_m,alegria_sd,ira_m,ira_sd,tristeza_m,tristeza_sd,miedo_m,miedo_sd,asco_m,asco_sd,categoria_palabradecimal
+id,palabra,word,alegria_m,alegria_sd,ira_m,ira_sd,tristeza_m,tristeza_sd,miedo_m,miedo_sd,asco_m,asco_sd,categoria_palabra
 1,"abandonado","derelict",1.03,0.18,2.83,1.46,4.30,0.84,3.33,1.52,1.77,1.19,1
 2,"abanico","fan",2.67,1.32,1.00,0.00,1.00,0.00,1.00,0.00,1.00,0.00,1
 3,"abeja","bee",1.47,0.86,1.97,1.16,1.47,0.97,3.53,1.36,2.07,1.20,1

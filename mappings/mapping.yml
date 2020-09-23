@@ -185,4 +185,180 @@ mappings:
               parameters:
                 - [str1, $(palabra)]
                 - [str2, $(palabra)]
+  
+  annotationsgonzaleznosti2014:
+    sources:
+      - [../data/emofinder_base_gonzalez_nosti_2013.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/gonzalez_nosti_2014-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:tiempo_tdl,$(tiempo_tdl)]
+      - [emofinder:tiempo_naming,$(tiempo_naming)]
+      - [emofinder:edad_de_adquisicion_m,$(edad_de_adquisicion_m)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/gonzalez_nosti_2014~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordsgonzaleznosti2014
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
 
+  annotationsguasch2015:
+    sources:
+      - [../data/emofinder_base_guasch_2015.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/guasch_2015-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:translation,$(word)]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:concrecion_m,$(concrecion_m)]
+      - [emofinder:concrecion_sd,$(concrecion_sd)]
+      - [emofinder:imaginabilidad_m,$(imaginabilidad_m)]
+      - [emofinder:imaginabilidad_sd,$(imaginabilidad_sd)]
+      - [emofinder:disponibilidad_contextual_m,$(disponibilidad_contextual_m)]
+      - [emofinder:disponibilidad_contextual_sd,$(disponibilidad_contextual_sd)]
+      - [emofinder:familiaridad_m,$(familiaridad_m)]
+      - [emofinder:familiaridad_sd,$(familiaridad_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/guasch_2015~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordsguasch2015
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+
+  annotationshinojosa2016a:
+    sources:
+      - [../data/emofinder_base_hinojosa_2016a.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/hinojosa_2016a-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:translation,$(word)]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:concrecion_m,$(concrecion_m)]
+      - [emofinder:concrecion_sd,$(concrecion_sd)]
+      - [emofinder:alegria_m,$(alegria_m)]
+      - [emofinder:alegria_sd,$(alegria_sd)]
+      - [emofinder:ira_m,$(ira_m)]
+      - [emofinder:ira_sd,$(ira_sd)]
+      - [emofinder:tristeza_m,$(tristeza_m)]
+      - [emofinder:tristeza_sd,$(tristeza_sd)]
+      - [emofinder:miedo_m,$(miedo_m)]
+      - [emofinder:miedo_sd,$(miedo_sd)]
+      - [emofinder:asco_m,$(asco_m)]
+      - [emofinder:asco_sd,$(asco_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/hinojosa_2016a~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordshinojosa2016a
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+
+  annotationshinojosa2016b:
+    sources:
+      - [../data/emofinder_base_hinojosa_2016b.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/hinojosa_2016b-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:translation,$(word)]
+      - [emofinder:familiaridad_m,$(familiaridad_m)]
+      - [emofinder:familiaridad_sd,$(familiaridad_sd)]
+      - [emofinder:dominancia_m,$(dominancia_m)]
+      - [emofinder:dominancia_sd,$(dominancia_sd)]
+      - [emofinder:edad_de_adquisicion_m,$(edad_de_adquisicion_m)]
+      - [emofinder:edad_de_adquisicion_sd,$(edad_de_adquisicion_sd)]
+      - [emofinder:experiencia_sensorial_m,$(experiencia_sensorial_m)]
+      - [emofinder:experiencia_sensorial_sd,$(experiencia_sensorial_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/hinojosa_2016b~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordshinojosa2016b
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+
+  annotationsredondo2005:
+    sources:
+      - [../data/emofinder_base_redondo_2005.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/redondo_2005-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/redondo_2005~iri]
+      - p: emofinder:word
+        o:
+          - mapping: wordsredondo2005
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+
+  annotationsredondo2007:
+    sources:
+      - [../data/emofinder_base_redondo_2007.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/redondo_2007-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:translation,$(word)]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:dominancia_m,$(dominancia_m)]
+      - [emofinder:dominancia_sd,$(dominancia_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/redondo_2007~iri] 
+      - p: emofinder:word
+        o:
+          - mapping: wordsredondo2007
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+
+  annotationsstadthagengonzalez2016:
+    sources:
+      - [../data/emofinder_base_stadthagen_gonzalez_2016.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/annotation/stadthagen_gonzalez_2016-$(palabra)
+    po:
+      - [a, emofinder:EmotionalAnnotation]
+      - [emofinder:valencia_m,$(valencia_m)]
+      - [emofinder:valencia_sd,$(valencia_sd)]
+      - [emofinder:activacion_m,$(activacion_m)]
+      - [emofinder:activacion_sd,$(activacion_sd)]
+      - [emofinder:category,$(categoria_palabra)]
+      - [emofinder:madeIn,https://www.usc.gal/pcc/app/emofinder/emotional-dataset/stadthagen_gonzalez_2016~iri]  
+      - p: emofinder:word
+        o:
+          - mapping: wordsstadthagengonzalez2016
+            condition:
+              function: equal
+              parameters:
+                - [str1, $(palabra)]
+                - [str2, $(palabra)]
+  
