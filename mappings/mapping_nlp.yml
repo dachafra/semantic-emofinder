@@ -1,0 +1,29 @@
+prefixes:
+  rr: http://www.w3.org/ns/r2rml#
+  foaf: http://xmlns.com/foaf/0.1/
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dc: http://purl.org/dc/elements/1.1/
+  rev: http://purl.org/stuff/rev#
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  schema: http://schema.org/
+  dct: http://purl.org/dc/terms/
+  rml: http://semweb.mmlab.be/ns/rml#
+  ql: http://semweb.mmlab.be/ns/ql#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  dcat: http://www.w3.org/ns/dcat#
+  emofinder: https://www.usc.gal/pcc/app/emofinder#
+  lexinfo: http://www.lexinfo.net/ontology/2.0/lexinfo#
+  skos: http://www.w3.org/2004/02/skos/core#
+
+mappings:
+  base:
+    sources:
+      - [../data/nlp_redondo_2005.csv~csv]
+    s: https://www.usc.gal/pcc/app/emofinder/word/$(palabra)
+    po:
+      - [skos:prefLabel, $(palabra),es~lang]
+      - [lexinfo:partOfSpeech, $(pos_tag)]
+      - [lexinfo:gender,$(gender)]
+      - [skos:prefLabel,$(translation_en),en~lang]
+      - [lexinfo:number,$(number)]
