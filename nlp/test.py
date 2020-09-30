@@ -10,19 +10,25 @@ import csv
 import stanza
 from csv import writer
 from csv import reader
+from googletrans import Translator
 
+translator = Translator()
 stanza.download('es')
 nlp = stanza.Pipeline('es')
 #pos_file = open('pos_redondo_2005.txt', 'w+')
 poslist=[]
 featlist=[]
+translist=[]
+source="redondo_2005"
 
 with open('emofinder_base_redondo_2005.csv', 'r') as f:
     read = csv.reader(f)
     for row in read:
         emoterm=row[1]
+        trans=translator.translate(emoterm, src='es', dest='en')
+        transterm=trans.text
+        translist.append(transterm)
         pos=nlp(emoterm)
-        print(pos)
         for sentence in pos.sentences:
             for word in sentence.words:
                 poslist.append(word.upos)
@@ -40,13 +46,11 @@ with open('emofinder_base_redondo_2005.csv', 'r') as read_obj:
     for row in csv_reader:
         row.append(poslist[i])
         row.append(featlist[i])
+        row.append(translist[i])
+        row.append(source)
         i=i+1
         csv_writer.writerow(row)
 
 
 f.close()         
 
-        # pos = str(nlp(emoterm))
-        # for p in pos:
-        #     pos_file.write(p)
-        
