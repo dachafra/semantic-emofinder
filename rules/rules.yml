@@ -1,0 +1,730 @@
+prefixes:
+ emofind: "https://www.usc.gal/pcc/app/emofinder/"
+ emoskos: "https://www.usc.gal/pcc/app/emofinder/kos/"
+ idlab-fn: "http://example.com/idlab/function/"
+ grel: "http://users.ugent.be/~bjdmeest/function/grel.ttl#"
+
+mappings:
+  bases:
+    sources:
+      - ['emofinder_bases.csv~csv']
+    s: emofind:recurso/wordbase/$(id)
+    po:
+      - [a, emofind:WordDatabase]
+      - [emofind:name, $(name)]
+      - [emofind:article, $(articleref)]
+      - [emofind:articleLink, $(articlelink)]
+      - [emofind:isPublic, $(public), xsd:boolean]
+      
+  palabras:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']
+    s: emofind:recurso/word/$(palabra)
+    po:
+      - [a, emofind:Word]
+      - [emofind:name, $(palabra), es~lang]
+      - p: emofind:category
+        o: 
+            value: emoskos:category/$(valor_anotacion)
+            type: iri
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "categoria_palabra"]
+      - p: emofind:name
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "word"]
+        language: en
+                
+  valencia:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']
+    s: emofind:recurso/valence/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "valencia"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Valence,emofind:EmotionalDimention,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "valencia_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "valencia_sd"]
+        datatype: xsd:float
+              
+  activacion:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']
+    s: emofind:recurso/arrousal/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "activacion"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Arrousal,emofind:EmotionalDimention,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "activacion_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "activacion_sd"]
+        datatype: xsd:float
+  dominancia:
+    sources:
+      - ['emofinder_anotaciones.csv~csv'] 
+    s: emofind:recurso/dominance/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "dominancia"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Dominance,emofind:EmotionalDimention,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "dominancia_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "dominancia_sd"]
+        datatype: xsd:float
+  miedo:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']     
+    s: emofind:recurso/fear/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "miedo"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Fear,emofind:EmotionalCategory,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "miedo_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "miedo_sd"]
+        datatype: xsd:float
+  ira:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/anger/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "ira"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Anger,emofind:EmotionalCategory,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "ira_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "ira_sd"]
+        datatype: xsd:float
+  alegria:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']        
+    s: emofind:recurso/happiness/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "alegria"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Happiness,emofind:EmotionalCategory,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "alegria_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "alegria_sd"]
+        datatype: xsd:float
+  tristeza:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/sadness/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "tristeza"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Sadness,emofind:EmotionalCategory,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "tristeza_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "tristeza_sd"]
+        datatype: xsd:float
+  asco:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/disgust/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "asco"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Disgust,emofind:EmotionalCategory,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "asco_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "asco_sd"]
+        datatype: xsd:float
+  tiemponaming:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/timenaming/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:equal
+        parameters:
+          - [grel:valueParameter, $(tipo_anotacion)]
+          - [grel:valueParameter2, "tiempo_naming"]
+    po:
+      - [a, [emofind:TimeNaming,emofind:RecognitionTime,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:value
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "tiempo_naming"]
+        datatype: xsd:float
+  tiempotdl:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/timetdl/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:equal
+        parameters:
+          - [grel:valueParameter, $(tipo_anotacion)]
+          - [grel:valueParameter2, "tiempo_tdl"]
+    po:
+      - [a, [emofind:TimeTdl,emofind:RecognitionTime,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:value
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "tiempo_tdl"]
+        datatype: xsd:float
+  familiaridad:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/familiarity/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "familiaridad"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Familiarity,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "familiaridad_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "familiaridad_sd"]
+        datatype: xsd:float
+  disponibilidadcontextual:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/contextualavailability/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "disponibilidad"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:ContextualAvailability,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "disponibilidad_contextual_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "disponibilidad_contextual_sd"]
+        datatype: xsd:float
+  imaginabilidad:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/imageability/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "imaginabilidad"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Imageability,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "imaginabilidad_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "imaginabilidad_sd"]
+        datatype: xsd:float
+  concrecion:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/concreteness/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "concrecion"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:Concreteness,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "concrecion_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "concrecion_sd"]
+        datatype: xsd:float
+  experienciasensorial:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/sensoryexperience/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "experiencia"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:SensoryExperience,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "experiencia_sensorial_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "experiencia_sensorial_sd"]
+        datatype: xsd:float
+  edaddeadquisicion:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']         
+    s: emofind:recurso/acquisitionage/$(id_base)/$(palabra)
+    condition:
+        function: idlab-fn:stringContainsOtherString
+        parameters:
+          - [idlab-fn:str, $(tipo_anotacion)]
+          - [idlab-fn:otherStr, "edad"]
+          - [idlab-fn:delimiter, "_"]
+    po:
+      - [a, [emofind:AcquisitionAge,emofind:OtherProperties,emofind:Annotation]]
+      - p: emofind:affects
+        o:
+          - mapping: palabras
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(palabra)]
+                  - [str2, $(palabra)]
+      - p: emofind:extractedFrom
+        o:
+          - mapping: bases
+            condition:
+                function: equal
+                parameters:
+                  - [str1, $(id_base)]
+                  - [str2, $(id)]
+      - p: emofind:mean
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "edad_de_adquisicion_m"]
+        datatype: xsd:float
+      - p: emofind:standarDeviation
+        o: $(valor_anotacion)
+        condition:
+            function: idlab-fn:equal
+            parameters:
+              - [grel:valueParameter, $(tipo_anotacion)]
+              - [grel:valueParameter2, "edad_de_adquisicion_sd"]
+        datatype: xsd:float
