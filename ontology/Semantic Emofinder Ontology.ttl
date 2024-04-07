@@ -1,9 +1,11 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix emofind: <https://www.usc.gal/pcc/app/emofinder/> .
+@prefix emoskos: <https://www.usc.gal/pcc/app/emofinder/kos/> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 dc:creator a owl:AnnotationProperty .
@@ -66,8 +68,8 @@ emofind:Sadness a owl:Class ;
     rdfs:label "Sadness" ;
     rdfs:subClassOf emofind:EmotionalCategory .
 
-emofind:SensoryExpeirence a owl:Class ;
-    rdfs:label "Sensory Expeirence" ;
+emofind:SensoryExperience a owl:Class ;
+    rdfs:label "Sensory Experience" ;
     rdfs:subClassOf emofind:OtherProperties .
 
 emofind:TimeNaming a owl:Class ;
@@ -95,25 +97,13 @@ emofind:articleLink a owl:DatatypeProperty ;
     rdfs:label "article link" ;
     rdfs:range xsd:String .
 
-emofind:category a owl:DatatypeProperty ;
+emofind:category a owl:ObjectProperty ;
     rdfs:label "category" ;
     rdfs:domain emofind:Word ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:oneOf [ a rdf:List ;
-                    rdf:first "3"^^xsd:Integer ;
-                    rdf:rest [ a rdf:List ;
-                            rdf:first "4"^^xsd:Integer ;
-                            rdf:rest [ a rdf:List ;
-                                    rdf:first "2"^^xsd:Integer ;
-                                    rdf:rest [ a rdf:List ;
-                                            rdf:first "1"^^xsd:Integer ;
-                                            rdf:rest [ a rdf:List ;
-                                                    rdf:first "0"^^xsd:Integer ;
-                                                    rdf:rest [ a rdf:List ;
-                                                            rdf:first "5"^^xsd:Integer ;
-                                                            rdf:rest [ a rdf:List ;
-                                                                    rdf:first "6"^^xsd:Integer ;
-                                                                    rdf:rest () ] ] ] ] ] ] ] ] .
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( skos:Concept [ a owl:Restriction ;
+                        owl:hasValue emoskos:Category ;
+                        owl:onProperty skos:inScheme ] ) ] .
 
 emofind:extractedFrom a owl:ObjectProperty ;
     rdfs:label "extracted from" ;
@@ -132,14 +122,6 @@ emofind:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
     rdfs:range xsd:String .
 
-emofind:nameEng a owl:DatatypeProperty ;
-    rdfs:label "name eng" ;
-    rdfs:range xsd:String .
-
-emofind:nameEsp a owl:DatatypeProperty ;
-    rdfs:label "name esp" ;
-    rdfs:range xsd:String .
-
 emofind:standarDeviation a owl:DatatypeProperty ;
     rdfs:label "standar deviation" ;
     rdfs:range xsd:Float .
@@ -148,8 +130,16 @@ emofind:value a owl:DatatypeProperty ;
     rdfs:label "value" ;
     rdfs:range xsd:Float .
 
+skos:Concept a owl:Class ;
+    rdfs:label "Concept" .
+
+skos:inScheme a owl:ObjectProperty ;
+    rdfs:label "in scheme" .
+
 emofind:WordDatabase a owl:Class ;
     rdfs:label "Word Database" .
+
+emoskos:Category a owl:NamedIndividual .
 
 emofind:RecognitionTime a owl:Class ;
     rdfs:label "Recognition Time" ;
