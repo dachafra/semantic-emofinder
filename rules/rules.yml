@@ -18,11 +18,17 @@ mappings:
       
   palabras:
     sources:
-      - ['emofinder_anotaciones.csv~csv']
+      - ['emofinder_palabras.csv~csv']
     s: emofind:recurso/word/$(palabra)
     po:
       - [a, emofind:Word]
       - [emofind:name, $(palabra), es~lang]
+        
+  palabrasdatos:
+    sources:
+      - ['emofinder_anotaciones.csv~csv']
+    s: emofind:recurso/word/$(palabra)
+    po:
       - p: emofind:category
         o: 
             value: emoskos:category/$(valor_anotacion)
