@@ -1,0 +1,357 @@
+@prefix emofind: <https://www.usc.gal/pcc/app/emofinder/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://mapping.example.com/map_activacion_000/shape> a sh:NodeShape ;
+    rdfs:label "Arrousal" ;
+    sh:name "Arrousal" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ] ;
+    sh:targetClass emofind:Arrousal .
+
+<http://mapping.example.com/map_alegria_000/shape> a sh:NodeShape ;
+    rdfs:label "Happiness" ;
+    sh:name "Happiness" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Happiness .
+
+<http://mapping.example.com/map_asco_000/shape> a sh:NodeShape ;
+    rdfs:label "Disgust" ;
+    sh:name "Disgust" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ] ;
+    sh:targetClass emofind:Disgust .
+
+<http://mapping.example.com/map_concrecion_000/shape> a sh:NodeShape ;
+    rdfs:label "Concreteness" ;
+    sh:name "Concreteness" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Concreteness .
+
+<http://mapping.example.com/map_disponibilidadcontextual_000/shape> a sh:NodeShape ;
+    rdfs:label "Contextual Availability" ;
+    sh:name "Contextual Availability" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:ContextualAvailability .
+
+<http://mapping.example.com/map_dominancia_000/shape> a sh:NodeShape ;
+    rdfs:label "Dominance" ;
+    sh:name "Dominance" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Dominance .
+
+<http://mapping.example.com/map_edaddeadquisicion_000/shape> a sh:NodeShape ;
+    rdfs:label "Acquisition Age" ;
+    sh:name "Acquisition Age" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ] ;
+    sh:targetClass emofind:AcquisitionAge .
+
+<http://mapping.example.com/map_experienciasensorial_000/shape> a sh:NodeShape ;
+    rdfs:label "Sensory Experience" ;
+    sh:name "Sensory Experience" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ] ;
+    sh:targetClass emofind:SensoryExperience .
+
+<http://mapping.example.com/map_familiaridad_000/shape> a sh:NodeShape ;
+    rdfs:label "Familiarity" ;
+    sh:name "Familiarity" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Familiarity .
+
+<http://mapping.example.com/map_imaginabilidad_000/shape> a sh:NodeShape ;
+    rdfs:label "Imageability" ;
+    sh:name "Imageability" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ] ;
+    sh:targetClass emofind:Imageability .
+
+<http://mapping.example.com/map_ira_000/shape> a sh:NodeShape ;
+    rdfs:label "Anger" ;
+    sh:name "Anger" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Anger .
+
+<http://mapping.example.com/map_miedo_000/shape> a sh:NodeShape ;
+    rdfs:label "Fear" ;
+    sh:name "Fear" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ] ;
+    sh:targetClass emofind:Fear .
+
+<http://mapping.example.com/map_palabrasdatos_000/shape> a sh:NodeShape ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "https://www.usc.gal/pcc/app/emofinder/recurso/word/.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path emofind:name ],
+        [ sh:nodeKind sh:IRI ;
+            sh:path emofind:category ] .
+
+<http://mapping.example.com/map_tiemponaming_000/shape> a sh:NodeShape ;
+    rdfs:label "Time Naming" ;
+    sh:name "Time Naming" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:value ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ] ;
+    sh:targetClass emofind:TimeNaming .
+
+<http://mapping.example.com/map_tiempotdl_000/shape> a sh:NodeShape ;
+    rdfs:label "Time Tdl" ;
+    sh:name "Time Tdl" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:value ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ] ;
+    sh:targetClass emofind:TimeTdl .
+
+<http://mapping.example.com/map_tristeza_000/shape> a sh:NodeShape ;
+    rdfs:label "Sadness" ;
+    sh:name "Sadness" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ] ;
+    sh:targetClass emofind:Sadness .
+
+<http://mapping.example.com/map_valencia_000/shape> a sh:NodeShape ;
+    rdfs:label "Valence" ;
+    sh:name "Valence" ;
+    sh:nodeKind sh:IRI ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:mean ],
+        [ sh:node <http://mapping.example.com/map_bases_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:extractedFrom ],
+        [ sh:datatype xsd:float ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:standarDeviation ],
+        [ sh:node <http://mapping.example.com/map_palabras_000/shape> ;
+            sh:nodeKind sh:IRI ;
+            sh:path emofind:affects ] ;
+    sh:targetClass emofind:Valence .
+
+<https://astrea.linkeddata.es/shapes#206deb0005933dbde58b813f1aba6e45> a sh:NodeShape ;
+    rdfs:label "Recognition Time" ;
+    sh:name "Recognition Time" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass emofind:RecognitionTime .
+
+<https://astrea.linkeddata.es/shapes#8535b61197b8e6a4a7e97bf10713262e> a sh:NodeShape ;
+    rdfs:label "Other Properties" ;
+    sh:name "Other Properties" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass emofind:OtherProperties .
+
+<https://astrea.linkeddata.es/shapes#98cc5ae76e2409412ef2b2ce9ea76a3e> a sh:NodeShape ;
+    rdfs:label "Emotional Dimension" ;
+    sh:name "Emotional Dimension" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass emofind:EmotionalDimension .
+
+<https://astrea.linkeddata.es/shapes#f4aa5871b26632281ce34eb95b875c72> a sh:NodeShape ;
+    rdfs:label "Annotation" ;
+    sh:name "Annotation" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass emofind:Annotation .
+
+<https://astrea.linkeddata.es/shapes#f8c104c75e3ebf9f5c0ea72d3559a7ce> a sh:NodeShape ;
+    rdfs:label "Emotional Category" ;
+    sh:name "Emotional Category" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass emofind:EmotionalCategory .
+
+<https://astrea.linkeddata.es/shapes#ffeaf0d3664c31215f614a64f5bb45a5> a sh:NodeShape ;
+    rdfs:label "Concept" ;
+    sh:name "Concept" ;
+    sh:nodeKind sh:IRI ;
+    sh:targetClass skos:Concept .
+
+<http://mapping.example.com/map_bases_000/shape> a sh:NodeShape ;
+    rdfs:label "Word Database" ;
+    sh:name "Word Database" ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "https://www.usc.gal/pcc/app/emofinder/recurso/wordbase/.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path emofind:articleLink ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path emofind:name ],
+        [ sh:nodeKind sh:Literal ;
+            sh:path emofind:article ],
+        [ sh:datatype xsd:boolean ;
+            sh:nodeKind sh:Literal ;
+            sh:path emofind:isPublic ] ;
+    sh:targetClass emofind:WordDatabase .
+
+<http://mapping.example.com/map_palabras_000/shape> a sh:NodeShape ;
+    rdfs:label "Word" ;
+    sh:name "Word" ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "https://www.usc.gal/pcc/app/emofinder/recurso/word/.*" ;
+    sh:property [ sh:nodeKind sh:Literal ;
+            sh:path emofind:name ] ;
+    sh:targetClass emofind:Word .
+
