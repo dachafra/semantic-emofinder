@@ -7,6 +7,8 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
     </head>
     <body>
         <header class="py-2 mb-2 border-bottom">
@@ -29,10 +31,11 @@
                 <h2>Bases de palabras</h2>
             </div>
             <form>
-                <div class="row border-bottom pb-2 mb-2">
+                <div class="row">
                     <legend>Filtros</legend>
                     <div class="col">
                         <legend>Atributos disponibles:</legend>
+                        <p><strong>Dimensiones emocionales</strong></p>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="base1">
                             <label class="form-check-label" for="base1">
@@ -51,13 +54,52 @@
                                 Dominancia
                             </label>
                         </div>
+                        <p><strong>Categorías emocionales</strong></p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="base4">
+                            <label class="form-check-label" for="base4">
+                                Miedo
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="base5">
+                            <label class="form-check-label" for="base5">
+                                Ira
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="base6">
+                            <label class="form-check-label" for="base6">
+                                Alegría
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="base6">
+                            <label class="form-check-label" for="base6">
+                                Tristeza
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="base6">
+                            <label class="form-check-label" for="base6">
+                                Asco
+                            </label>
+                        </div>
+                        
                     </div>
                     <div class="col">
                         <label for="palabras" class="col-form-label">Palabras disponibles:</label>
+                        <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Escrbir las palabras separadas por comas sin espacios">
+                            Info
+                          </button>
                         <textarea id="palabras" class="form-control mb-2" rows="3"></textarea>
-                        <button type="button" class="btn btn-primary">Aplicar filtros</button>
+                        
                     </div>
+                    
 
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto  border-bottom pb-2 mb-2">
+                    <button type="button" class="btn btn-primary">Aplicar filtros</button>
                 </div>
             </form>
             <div class="row">
@@ -68,7 +110,6 @@
                         <th>Artículo</th>
                         <th>Enlace</th>
                         <th>Características disponibles</th>
-                        <th>Palabras disponibles</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -77,11 +118,15 @@
                         <td>Guasch, M., Ferré, P., & Fraga, I. (2016). Spanish norms for affective and lexico-semantic variables for 1,400 words. <i>Behavior Research Methods, 48</i>, 1358–1369. doi:10.3758/s13428-015-0684-y</td>
                         <td><a href="https://doi.org/10.3758/s13428-015-0684-y">https://doi.org/10.3758/s13428-015-0684-y</a></td>
                         <td><button type="button" class="btn btn-primary">Consultar características disponibles</button></td>
-                        <td><button type="button" class="btn btn-primary">Consultar palabras disponibles</button></td>
                       </tr>
                     </tbody>
                   </table>
             </div>
         </div>
+        <script>
+            $(document).ready(function(){
+            $('[data-bs-toggle="popover"]').popover();
+            });
+        </script>
     </body>
 </html>

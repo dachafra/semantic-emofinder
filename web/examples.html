@@ -30,24 +30,64 @@
             </div>
             <div class="row border-top border-bottom py-2 my-2">
                 <h4>Consultas sobre anotaciones</h4>
-                <p>Palabras con valencia superior a 5.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras con activación inferior a 3.0 y valencia superior a 2.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras con activación inferior a 3.0 con una desviación típica inferior a 0.3<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras con familiaridad superior a 4.5 en todas las bases con familiaridad <button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras con concreción superior a 4.0 o disponibilidad contextual superior a 5.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Valencia de las palabras con dominancia entre 3.0 y 4.5<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
+                <p>Palabras con valencia superior a 5.0<button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <div class="collapse" id="collapse1">
+                    <div class="card card-body">
+                        <pre><code>
+                        PREFIX emofind: &lt;https://www.usc.gal/pcc/app/emofinder/&gt;
+                        SELECT 
+                          ?nombre ?mediav 
+                          WHERE { 
+                          ?anotacion rdf:type emofind:Valence .
+                          ?anotacion emofind:affects ?palabra .
+                          ?anotacion emofind:mean ?mediav .
+                          ?palabra emofind:name ?nombre
+                          FILTER (LANG(?nombre) = "es")
+                          FILTER (?mediav > 5.0)
+                      
+                        } 
+                        </code></pre>
+                    </div>
+                </div>
+                <p>Palabras con activación inferior a 3.0 y valencia superior a 2.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+
+                <p>Palabras con activación inferior a 3.0 con una desviación típica inferior a 0.3<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+
+                <p>Palabras con familiaridad superior a 4.5 en todas las bases con familiaridad <button type="button" class="btn btn-primary ms-4" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <div class="collapse" id="collapse4">
+                    <div class="card card-body">
+                        <pre><code>
+                        PREFIX emofind: &lt;https://www.usc.gal/pcc/app/emofinder/&gt;
+                        SELECT 
+                          ?nombre ?mediav 
+                          WHERE { 
+                          ?anotacion rdf:type emofind:Valence .
+                          ?anotacion emofind:affects ?palabra .
+                          ?anotacion emofind:mean ?mediav .
+                          ?palabra emofind:name ?nombre
+                          FILTER (LANG(?nombre) = "es")
+                          FILTER (?mediav > 5.0)
+                      
+                        } 
+                        </code></pre>
+                    </div>
+                </div>
+                <p>Palabras con concreción superior a 4.0 o disponibilidad contextual superior a 5.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+
+                <p>Valencia de las palabras con dominancia entre 3.0 y 4.5<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+
             </div>
             <div class="row border-top border-bottom py-2 my-2">
                 <h4>Consultas sobre bases</h4>
-                <p>Información de una base a partir del nombre<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Características disponibles en una base<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras disponibles en una base<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Bases que incluyen una característica<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
+                <p>Información de una base a partir del nombre<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <p>Características disponibles en una base<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <p>Palabras disponibles en una base<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <p>Bases que incluyen una característica<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
             </div>
             <div class="row border-top border-bottom py-2 my-2">
                 <h4>Consultas sobre palabras</h4>
-                <p>Palabras disponibles que empiezan por "al"<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
-                <p>Palabras que contienen "cla" con activación superior a 3.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button></p>
+                <p>Palabras disponibles que empiezan por "al"<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
+                <p>Palabras que contienen "cla" con activación superior a 3.0<button type="button" class="btn btn-primary ms-4">Mostrar consulta SPARQL</button><button type="button" class="btn btn-primary ms-4">Mostrar resultado consulta</button></p>
             </div>
         </div>
     </body>

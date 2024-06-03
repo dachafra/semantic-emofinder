@@ -32,50 +32,100 @@
                 <div class="row">
                     <div class="col-md-8">
                         <legend>Filtros de búsqueda</legend>
+                        <div class="border-bottom border-top py-2 my-2">
+                            <div class="row mb-2">
+                                <label for="inicio_palabra" class="col-sm-2 col-form-label">Empiza por:</label>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" name="inicio_palabra" id="inicio_palabra">
+                                </div>
+                                <label for="fin_palabra" class="col-sm-2 col-form-label">Acaba en:</label>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" name="fin_palabra" id="fin_palabra">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <label for="contiene_palabra" class="col-sm-2 col-form-label">Contiene:</label>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" name="contiene_palabra" id="contiene_palabra">
+                                </div>
+                                <label for="palabra_exacta" class="col-sm-2 col-form-label">Palabra exacta:</label>
+                                <div class="col-4">
+                                    <input type="text" class="form-control" name="palabra_exacta" id="palabra_exacta">
+                                </div>
+                            </div>
+                            
+                        </div>
                         <div class="border-bottom pb-2 mb-2">
-                        <div class="mb-3">
-                        <label for="atributo1" class="form-label">Característica:</label>
-                        <select class="form-select" id="atributo1">
-                            <option selected>Seleccionar</option>
-                            <option>Valencia</option>
-                            <option>Activación</option>
-                            <option>Dominancia</option>
-                        </select>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col">
-                                <p class="mb-0">Media:</p>
+                            <div class="mb-3">
+                                <label for="atributo1" class="form-label">Característica:</label>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <select class="form-select" id="atributo1">
+                                            <option selected>Seleccionar</option>
+                                            <option>Dimensión emocional</option>
+                                            <option>Categoría emocional</option>
+                                            <option>Tiempos de reconocimiento</option>
+                                            <option>Otras características</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select" id="atributo1">
+                                            <option selected>Seleccionar</option>
+                                            <option>Valencia</option>
+                                            <option>Activación</option>
+                                            <option>Dominancia</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Límite inferior" name="valor_inf_m1" id="limite_inf_m1">
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <p class="mb-0">Media:</p>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Límite inferior" name="valor_inf_m1" id="limite_inf_m1">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Límite Superior" name="valor_sup_m1" id="limite_sup_m1">
+                                </div>
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Límite Superior" name="valor_sup_m1" id="limite_sup_m1">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="mb-0">Desviación típica:</p>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Límite inferior" name="valor_inf_sd1" id="limite_inf_sd1">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Límite Superior" name="valor_sup_sd1" id="limite_sup_sd1">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="mb-0">Desviación típica:</p>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Límite inferior" name="valor_inf_sd1" id="limite_inf_sd1">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Límite Superior" name="valor_sup_sd1" id="limite_sup_sd1">
-                            </div>
-                        </div>
+                            <button type="button" class="btn btn-danger">Eliminar filtro</button>
                         </div>
 
                         <div class="border-bottom pb-2 mb-2">
                             <div class="mb-3">
                             <label for="atributo2" class="form-label">Característica:</label>
                             
-                            <select class="form-select" aria-label="Default select example" id="atributo2">
-                                <option selected>Seleccionar</option>
-                                <option>Valencia</option>
-                                <option>Activación</option>
-                                <option>Dominancia</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-6">
+                                    <select class="form-select" id="atributo1">
+                                        <option selected>Seleccionar</option>
+                                        <option>Dimensión emocional</option>
+                                        <option>Categoría emocional</option>
+                                        <option>Tiempos de reconocimiento</option>
+                                        <option>Otras características</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <select class="form-select" id="atributo1">
+                                        <option selected>Seleccionar</option>
+                                        <option>Valencia</option>
+                                        <option>Activación</option>
+                                        <option>Dominancia</option>
+                                    </select>
+                                </div>
+                            </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col">
@@ -98,7 +148,7 @@
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Límite Superior" name="valor_sup_sd2" id="limite_sup_sd2">
                                 </div>
-                            </div class="position-relative">
+                            </div>
                             <button type="button" class="btn btn-danger">Eliminar filtro</button>
                             </div>
                             <div class="d-grid gap-3">
