@@ -10,7 +10,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         
     </head>
-    <body>
+    <body onload="search()">
         <header class="py-2 mb-2 border-bottom">
             <div class="d-flex flex-wrap container">
               <a class="mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
@@ -37,51 +37,51 @@
                         <legend>Atributos disponibles:</legend>
                         <p><strong>Dimensiones emocionales</strong></p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base1">
+                            <input class="form-check-input" type="checkbox" value="Valence" id="base1">
                             <label class="form-check-label" for="base1">
                                 Valencia
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base2">
+                            <input class="form-check-input" type="checkbox" value="Arousal" id="base2">
                             <label class="form-check-label" for="base2">
                                 Activación
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base3">
+                            <input class="form-check-input" type="checkbox" value="Dominance" id="base3">
                             <label class="form-check-label" for="base3">
                                 Dominancia
                             </label>
                         </div>
                         <p><strong>Categorías emocionales</strong></p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base4">
+                            <input class="form-check-input" type="checkbox" value="Fear" id="base4">
                             <label class="form-check-label" for="base4">
                                 Miedo
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base5">
+                            <input class="form-check-input" type="checkbox" value="Anger" id="base5">
                             <label class="form-check-label" for="base5">
                                 Ira
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base6">
+                            <input class="form-check-input" type="checkbox" value="Happiness" id="base6">
                             <label class="form-check-label" for="base6">
                                 Alegría
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base6">
-                            <label class="form-check-label" for="base6">
+                            <input class="form-check-input" type="checkbox" value="Sadness" id="base7">
+                            <label class="form-check-label" for="base7">
                                 Tristeza
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="base6">
-                            <label class="form-check-label" for="base6">
+                            <input class="form-check-input" type="checkbox" value="Disgust" id="base8">
+                            <label class="form-check-label" for="base8">
                                 Asco
                             </label>
                         </div>
@@ -99,7 +99,7 @@
 
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto  border-bottom pb-2 mb-2">
-                    <button type="button" class="btn btn-primary">Aplicar filtros</button>
+                    <button type="button" class="btn btn-primary" onclick="detail()">Aplicar filtros</button>
                 </div>
             </form>
             <div class="row">
@@ -112,13 +112,7 @@
                         <th>Características disponibles</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>guasch_2016</td>
-                        <td>Guasch, M., Ferré, P., & Fraga, I. (2016). Spanish norms for affective and lexico-semantic variables for 1,400 words. <i>Behavior Research Methods, 48</i>, 1358–1369. doi:10.3758/s13428-015-0684-y</td>
-                        <td><a href="https://doi.org/10.3758/s13428-015-0684-y">https://doi.org/10.3758/s13428-015-0684-y</a></td>
-                        <td><button type="button" class="btn btn-primary">Consultar características disponibles</button></td>
-                      </tr>
+                    <tbody id="data">
                     </tbody>
                   </table>
             </div>
@@ -127,6 +121,55 @@
             $(document).ready(function(){
             $('[data-bs-toggle="popover"]').popover();
             });
+
+            function search() {
+                document.getElementById("demo").innerHTML = "<p>cargando...</p>";
+                
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onload = function() {
+                    var myObj = JSON.parse(this.responseText);
+                    
+                    let text = ""
+                    
+                    for (x in myObj.results.bindings) {
+                        text += "<tr>"+"<td>" + myObj.results.bindings[x].nombre.value + "</td>"+"<td>" + myObj.results.bindings[x].articulo.value + "</td>"+"<td> <a href='"+myObj.results.bindings[x].enlace.value+"''>" + myObj.results.bindings[x].enlace.value + "</a></td>"+"<td>"+myObj.results.bindings[x].anotaciones.value.replaceAll("https://www.usc.gal/pcc/app/emofinder/","")+"</td>"+"</tr>";
+                    }
+                       
+                    document.getElementById("data").innerHTML = text;
+                    
+                }
+                xmlhttp.open("GET", "/consulta_base", true);
+                xmlhttp.send();
+            }
+
+            function detail(base) {
+                
+                var form = document.getElementsByClassName("form-check-input");
+                var table = document.getElementById("data");
+                var tr = table.getElementsByTagName("tr");
+                var td, txtValue;
+
+                //reinicia el display de la tabla
+                for(var j = 0; j < tr.length; j++){
+                    tr[j].style.display = "";
+                }
+                
+                //oculta las filas que no cumplen con el filtro
+                for(var i = 0; i < form.length; i++){
+                    if(form[i].checked){
+                        for(j = 0; j < tr.length; j++){
+                            td = tr[j].getElementsByTagName("td")[3];
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.indexOf(form[i].value) == -1) {
+                                    tr[j].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         </script>
     </body>
 </html>
