@@ -95,7 +95,7 @@ mappings:
   activacion:
     sources:
       - ['emofinder_anotaciones.csv~csv']
-    s: emofind:recurso/arrousal/$(id_base)/$(palabra)
+    s: emofind:recurso/arousal/$(id_base)/$(palabra)
     condition:
         function: idlab-fn:stringContainsOtherString
         parameters:
@@ -103,7 +103,7 @@ mappings:
           - [idlab-fn:otherStr, "activacion"]
           - [idlab-fn:delimiter, "_"]
     po:
-      - [a, [emofind:Arrousal,emofind:EmotionalDimention,emofind:Annotation]]
+      - [a, [emofind:Arousal,emofind:EmotionalDimention,emofind:Annotation]]
       - p: emofind:affects
         o:
           - mapping: palabras

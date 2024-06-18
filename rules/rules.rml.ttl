@@ -513,7 +513,7 @@
     rr:constant idlab-fn:str.
 :pom_039 rr:objectMap :om_039.
 :om_039 a rr:ObjectMap;
-    rr:template "https://www.usc.gal/pcc/app/emofinder/recurso/arrousal/{id_base}/{palabra}";
+    rr:template "https://www.usc.gal/pcc/app/emofinder/recurso/arousal/{id_base}/{palabra}";
     rr:termType rr:IRI.
 :pom_040 a rr:PredicateObjectMap.
 :map_activacion_000 rr:predicateObjectMap :pom_040.
@@ -522,7 +522,7 @@
 :pm_040 rr:constant rdf:type.
 :pom_040 rr:objectMap :om_040.
 :om_040 a rr:ObjectMap;
-    rr:constant emofind:Arrousal;
+    rr:constant emofind:Arousal;
     rr:termType rr:IRI.
 :pom_040 rr:objectMap :om_041.
 :om_041 a rr:ObjectMap;

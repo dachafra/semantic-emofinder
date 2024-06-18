@@ -28,8 +28,8 @@ emofind:Anger a owl:Class ;
     rdfs:label "Anger" ;
     rdfs:subClassOf emofind:EmotionalCategory .
 
-emofind:Arrousal a owl:Class ;
-    rdfs:label "Arrousal" ;
+emofind:Arousal a owl:Class ;
+    rdfs:label "Arousal" ;
     rdfs:subClassOf emofind:EmotionalDimension .
 
 emofind:Concreteness a owl:Class ;
