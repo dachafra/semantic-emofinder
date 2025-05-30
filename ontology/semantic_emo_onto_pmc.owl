@@ -44,6 +44,14 @@
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source">
+        <skos:scopeNote xml:lang="en">A related resource from which the described resource is derived.</skos:scopeNote>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
@@ -90,13 +98,7 @@
     <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/rights">
         <skos:scopeNote xml:lang="en">Used to describe rights related to a bibliographic resource.</skos:scopeNote>
     </owl:ObjectProperty>
-    <!-- http://purl.org/dc/elements/1.1/source -->
-
-    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source">
-        <skos:scopeNote xml:lang="en">A related resource from which the described resource is derived.</skos:scopeNote>
-    </owl:AnnotationProperty>
     
-
 
 
     <!-- http://www.w3.org/ns/lemon/lime#entry -->
@@ -368,6 +370,30 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Action -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Action">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with acting, doing, and influencing.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con actuar, hacer, e influir.</rdfs:comment>
+        <rdfs:label xml:lang="en">Action</rdfs:label>
+        <rdfs:label xml:lang="es">Actuación</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Amusement -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Amusement">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of amusement conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de diversión que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="en">Amusement</rdfs:label>
+        <rdfs:label xml:lang="es">Diversión</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/Anger -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Anger">
@@ -401,6 +427,30 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Awe -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Awe">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of awe conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de admiración que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Admiración</rdfs:label>
+        <rdfs:label xml:lang="en">Awe</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/BodyExpression -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/BodyExpression">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with changes in parts of the body such as the voice, posture, gestures, or facial expression.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con cambios en partes del cuerpo como la voz, la postura, los gestos, o la expresión de la cara</rdfs:comment>
+        <rdfs:label xml:lang="en">Body Expression</rdfs:label>
+        <rdfs:label xml:lang="es">Expresión Corporal</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/Concreteness -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Concreteness">
@@ -409,6 +459,18 @@
         <rdfs:comment xml:lang="es">La concreción se refiere a hasta qué punto la palabra se refiere a una entidad que puede percibirse con los sentidos.</rdfs:comment>
         <rdfs:label xml:lang="es">Concreción</rdfs:label>
         <rdfs:label xml:lang="en">Concreteness</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Contentment -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Contentment">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of contentment conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de satisfacción que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="en">Contentment</rdfs:label>
+        <rdfs:label xml:lang="es">Satisfacción</rdfs:label>
     </owl:Class>
     
 
@@ -469,6 +531,30 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Evaluation -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Evaluation">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/EmotionalDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with situations that are important for well-being and/or survival.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con situaciones importantes para el bienestar y/o supervivencia.</rdfs:comment>
+        <rdfs:label xml:lang="es">Evaluación</rdfs:label>
+        <rdfs:label xml:lang="en">Evaluation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Excitement -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Excitement">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of excitement conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de entusiasmo que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Entusiasmo</rdfs:label>
+        <rdfs:label xml:lang="en">Excitement</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/Familiarity -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Familiarity">
@@ -493,6 +579,18 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Feeling -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Feeling">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/EmotionalDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with feelings.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con sentimientos.</rdfs:comment>
+        <rdfs:label xml:lang="en">Feeling</rdfs:label>
+        <rdfs:label xml:lang="es">Sentimiento</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/Happiness -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Happiness">
@@ -501,6 +599,18 @@
         <rdfs:comment xml:lang="es">Se refiere al grado de felicidad que transmite una palabra.</rdfs:comment>
         <rdfs:label xml:lang="es">Felicidad</rdfs:label>
         <rdfs:label xml:lang="en">Happiness</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Iconicity -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Iconicity">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word’s sound relation to its meaning.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación del sonido de la palabra con su significado.</rdfs:comment>
+        <rdfs:label xml:lang="es">Iconicidad</rdfs:label>
+        <rdfs:label xml:lang="en">Iconicity</rdfs:label>
     </owl:Class>
     
 
@@ -517,12 +627,107 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Interoception -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Interoception">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/EmotionalDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with internal bodily sensations.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con sensaciones corporales internas.</rdfs:comment>
+        <rdfs:label xml:lang="es">Interocepción</rdfs:label>
+        <rdfs:label xml:lang="en">Interoception</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Morality -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Morality">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with morality, rules, or any other principle that guides behavior.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con la moralidad, las reglas, o cualquier otro principio que guía la conducta.</rdfs:comment>
+        <rdfs:label xml:lang="es">Moralidad</rdfs:label>
+        <rdfs:label xml:lang="en">Morality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/ObjectiveAcquisitionAge -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/ObjectiveAcquisitionAge">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/ObjectiveEstimation"/>
+        <rdfs:comment xml:lang="en">It refers to the age at which the word was acquired.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere a la edad en la que se ha adquirido la palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Edad de adquisición objetiva</rdfs:label>
+        <rdfs:label xml:lang="en">Objective Acquisition Age</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/ObjectiveEstimation -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/ObjectiveEstimation">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/Annotation"/>
+        <rdfs:label xml:lang="es">Estimación Objetiva</rdfs:label>
+        <rdfs:label xml:lang="en">Objective Estimation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Pleasure -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Pleasure">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of pleasure conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de placer que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Placer</rdfs:label>
+        <rdfs:label xml:lang="en">Pleasure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Prototipicality -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Prototipicality">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/EmotionalDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word’s connection with an emotion.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con una emoción.</rdfs:comment>
+        <rdfs:label xml:lang="es">Prototipicalidad</rdfs:label>
+        <rdfs:label xml:lang="en">Prototipicality</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/RecognitionErrorPercentage -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/RecognitionErrorPercentage">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/RecognitionTime"/>
+        <rdfs:comment xml:lang="en">%E</rdfs:comment>
+        <rdfs:comment xml:lang="en">Percentage of incorrect word identification in a lexical decision task.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Porcentaje de identificación incorrecta de la palabra en una tarea de decisión léxica.</rdfs:comment>
+        <rdfs:label xml:lang="es">Porcentaje de error de reconocimiento (LDT)</rdfs:label>
+        <rdfs:label xml:lang="en">Recognition Error Percentage</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/RecognitionTime -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/RecognitionTime">
         <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/Annotation"/>
         <rdfs:label xml:lang="en">Recognition Time</rdfs:label>
         <rdfs:label xml:lang="es">Tiempo de reconocimiento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Relief -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Relief">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="es">It refers to the degree of relief conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de alivio que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Alivio</rdfs:label>
+        <rdfs:label xml:lang="en">Relief</rdfs:label>
     </owl:Class>
     
 
@@ -551,12 +756,46 @@
     
 
 
+    <!-- https://www.usc.gal/pcc/app/emofinder/Serenity -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Serenity">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/DiscreteEmotionalCategory"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of serenity conveyed by a word.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de serenidad que transmite una palabra.</rdfs:comment>
+        <rdfs:label xml:lang="es">Serenidad</rdfs:label>
+        <rdfs:label xml:lang="en">Serenity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/SocialInteraction -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/SocialInteraction">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:label xml:lang="es">Interacción social</rdfs:label>
+        <rdfs:label xml:lang="en">Social Interaction</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension -->
 
     <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension">
         <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/Annotation"/>
         <rdfs:label xml:lang="es">Dimensión subjetiva</rdfs:label>
         <rdfs:label xml:lang="en">Subjective Dimension</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://www.usc.gal/pcc/app/emofinder/Thought -->
+
+    <owl:Class rdf:about="https://www.usc.gal/pcc/app/emofinder/Thought">
+        <rdfs:subClassOf rdf:resource="https://www.usc.gal/pcc/app/emofinder/SubjectiveDimension"/>
+        <rdfs:comment xml:lang="en">It refers to the degree of the word&apos;s connection with mental activity, ideas, opinions, and judgments.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Se refiere al grado de relación de la palabra con la actividad mental, las ideas, las opiniones y los juicios.</rdfs:comment>
+        <rdfs:label xml:lang="es">Pensamiento</rdfs:label>
+        <rdfs:label xml:lang="en">Thought</rdfs:label>
     </owl:Class>
     
 
